@@ -1,51 +1,39 @@
-package Cotizacion;
+package fund2.CotizaPoli;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cotizacion {
+    private List<Materiales> listamateriales;
+    private List<Usuario> listausuarios;
 
-    private String  Material;
-    private Integer Cantidad;
+    public Cotizacion(){
 
-    private Double Precio;
+        listamateriales= new ArrayList<>();
+        listausuarios= new ArrayList<>();
+    }
+    public void agregarMaterial(Materiales a) {
+        listamateriales.add(a);
+    }
+    public void agregarUsuario(Usuario u){listausuarios.add(u);}
 
-    public Cotizacion() {
+    public void listarMateriales(){
+        for (Materiales t : listamateriales){
+            System.out.println(t);
+        }
+    }
+    public boolean listaUsusarios(String user, String password) {
+        for (Usuario u : listausuarios){
+            if (u.getUsuario().equals(user) && u.getContrasena().equals(password)){
+                return true;
+            }
+        }
+        return false;
     }
 
-    public Cotizacion(String material, Integer cantidad, Double precio) {
-        Material = material;
-        Cantidad = cantidad;
-        Precio = precio;
-    }
 
-    @Override
-    public String toString() {
-        return "Cotizacion{" +
-                "Material='" + Material + '\'' +
-                ", Cantidad=" + Cantidad +
-                ", Precio=" + Precio +
-                '}';
-    }
 
-    public String getMaterial() {
-        return Material;
-    }
 
-    public void setMaterial(String material) {
-        Material = material;
-    }
 
-    public Integer getCantidad() {
-        return Cantidad;
-    }
 
-    public void setCantidad(Integer cantidad) {
-        Cantidad = cantidad;
-    }
-
-    public Double getPrecio() {
-        return Precio;
-    }
-
-    public void setPrecio(Double precio) {
-        Precio = precio;
-    }
 }
